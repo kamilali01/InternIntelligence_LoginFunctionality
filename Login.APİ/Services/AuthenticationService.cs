@@ -22,7 +22,7 @@ namespace Login.APİ.Services
 
             if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
             {
-                throw new UnauthorizedAccessException("Geçersiz kullanıcı adı veya şifre.");
+                throw new UnauthorizedAccessException("Invalid username or password.");
             }
 
             var token = _jwtService.GenerateJwtToken(user);
